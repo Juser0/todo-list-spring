@@ -21,7 +21,7 @@ Since : 2023.02.xx (Expected)
   - Repository Layer (JPA - Hibernate)  
   - Service Layer  
   - Controller Layer  
-  - Spring Security & JPA Login  
+  - Spring Security & JWT Login  
   - Exception Handling  
  
  > Deployment  
