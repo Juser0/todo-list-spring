@@ -15,7 +15,7 @@ Since : 2023.02.xx (Expected)
   - ERD Implement  
   - API Manual  
  
- > Development (Week 3~5)  
+ > Development (Week 2~5)  
   - Domain  
   - Repository Layer (JPA - Hibernate)  
   - Service Layer  
