@@ -6,8 +6,8 @@ Since : 2023.02.xx (Expected)
 
 ## 📌 Index
 ### [Design](./Design/README.md)
-- [ERD](./erd.md)
-- [API Manual](./api.md)
+- [ERD](./Design/erd.md)
+- [API Manual](./Design/api.md)
 ### [Development](./Development/README.md)
 
 ## 📚 Contents
