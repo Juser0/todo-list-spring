@@ -23,7 +23,7 @@ public class UserController {
 
     @PostMapping
     public void createUser(@RequestBody UserCreateRequestDto requestDto) {
-
+        userService.create(requestDto);
     }
 
     @PutMapping("/{userId}")
