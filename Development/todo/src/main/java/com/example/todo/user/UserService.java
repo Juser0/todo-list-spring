@@ -20,6 +20,8 @@ public class UserService implements CrudService<UserCreateRequestDto, UserUpdate
     @Override
     public UserInfoResponseDto create(UserCreateRequestDto requestDto) {
         User user = UserCreateMapper.MAPPER.toEntity(requestDto);
+        userRepository.save(user);
+
         UserInfoResponseDto responseDto = UserCreateMapper.MAPPER.toDto(user);
         return responseDto;
     }
@@ -27,6 +29,7 @@ public class UserService implements CrudService<UserCreateRequestDto, UserUpdate
     @Override
     public UserInfoResponseDto read(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("잘못된 회원입니다"));
+
         UserInfoResponseDto responseDto = UserCreateMapper.MAPPER.toDto(user);
         return responseDto;
     }
@@ -44,6 +47,12 @@ public class UserService implements CrudService<UserCreateRequestDto, UserUpdate
 
     @Override
     public UserUpdateResponseDto update(Long id, UserUpdateRequestDto requestDto) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("잘못된 회원입니다"));
+        user.modifyAge(requestDto.getAge());
+        user.modifyName(requestDto.getName());
+        userRepository.save(user);
+
+        UserUpdateResponseDto responseDto = UserUpdateMapper.MAPPER.toDto(user);
         return null;
     }
 

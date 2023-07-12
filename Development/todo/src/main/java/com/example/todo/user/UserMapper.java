@@ -20,4 +20,10 @@ public interface UserMapper {
         @Mapping(target = "todoList", ignore = true)
         User toEntity(final UserCreateRequestDto dto);
     }
+
+    @Mapper
+    public interface UserUpdateMapper extends EntityMapper<UserUpdateRequestDto, UserUpdateResponseDto, User> {
+
+        UserUpdateMapper MAPPER = Mappers.getMapper(UserUpdateMapper.class);
+    }
 }

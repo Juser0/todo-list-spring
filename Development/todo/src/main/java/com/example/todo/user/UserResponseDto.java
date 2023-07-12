@@ -33,7 +33,15 @@ public class UserResponseDto {
         private LocalDateTime modifiedAt;
     }
 
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class UserUpdateResponseDto {
-
+        private Long id;
+        private String name;
+        private int age;
+        private LocalDateTime createdAt;
+        private LocalDateTime modifiedAt;
     }
 }
