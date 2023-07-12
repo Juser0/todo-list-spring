@@ -22,5 +22,9 @@ public class TodoResponseDto {
         private Boolean isFinished;
         private LocalDateTime createdAt;
         private LocalDateTime modifiedAt;
+
+        public void modifyUserId(Long id) {
+            this.userId = id;
+        }
     }
 }

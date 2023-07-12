@@ -11,7 +11,7 @@ import org.mapstruct.factory.Mappers;
 public interface UserMapper {
 
     @Mapper
-    public interface UserCreateMapper extends EntityMapper<UserCreateRequestDto, UserInfoResponseDto, User> {
+    interface UserCreateMapper extends EntityMapper<UserCreateRequestDto, UserInfoResponseDto, User> {
 
         UserCreateMapper MAPPER = Mappers.getMapper(UserCreateMapper.class);
 
@@ -22,7 +22,7 @@ public interface UserMapper {
     }
 
     @Mapper
-    public interface UserUpdateMapper extends EntityMapper<UserUpdateRequestDto, UserUpdateResponseDto, User> {
+    interface UserUpdateMapper extends EntityMapper<UserUpdateRequestDto, UserUpdateResponseDto, User> {
 
         UserUpdateMapper MAPPER = Mappers.getMapper(UserUpdateMapper.class);
     }
