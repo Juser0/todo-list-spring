@@ -39,11 +39,18 @@ public class TodoService implements CrudService<TodoExecuteRequestDto, TodoExecu
 
     @Override
     public TodoInfoResponseDto read(Long id) {
-        Todo todo = todoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("잘못된 할일입니다"));
+        return null;
+    }
 
-        TodoInfoResponseDto responseDto = TodoExecuteMapper.MAPPER.toDto(todo);
-        responseDto.modifyUserId(todo.getUser().getId());
-        return responseDto;
+    public List<TodoInfoResponseDto> readById(Long id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("잘못된 회원입니다"));
+        List<Todo> list = todoRepository.findByUser(user);
+        List<TodoInfoResponseDto> todoList = new ArrayList<>();
+        for (Todo todo : list) {
+            TodoInfoResponseDto dto = TodoExecuteMapper.MAPPER.toDto(todo);
+            todoList.add(dto);
+        }
+        return todoList;
     }
 
     @Override

@@ -30,21 +30,21 @@ public class TodoController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<CommonResponse<?>> findOneByUserId(@PathVariable Long userId) {
-        TodoInfoResponseDto responseDto = todoService.read(userId);
+    public ResponseEntity<CommonResponse<?>> findOne(@PathVariable Long userId) {
+        List<TodoInfoResponseDto> todoList = todoService.readById(userId);
 
         return ResponseEntity.status(200)
                 .body(CommonResponse.builder()
                         .responseCode("TODOS_FOUND_BY_USER")
                         .responseMessage("사용자 할일 조회 완료")
-                        .data(responseDto)
+                        .data(todoList)
                         .build());
     }
 
     @PostMapping("/{userId}")
-    public ResponseEntity<CommonResponse<?>> createTodo(@PathVariable Long todoId, @RequestBody TodoExecuteRequestDto requestDto) {
-        TodoInfoResponseDto responseDto = todoService.create(requestDto, todoId);
-        
+    public ResponseEntity<CommonResponse<?>> createTodo(@PathVariable Long userId, @RequestBody TodoExecuteRequestDto requestDto) {
+        TodoInfoResponseDto responseDto = todoService.create(requestDto, userId);
+
         return ResponseEntity.status(201)
                 .body(CommonResponse.builder()
                         .responseCode("TODO_CREATED")

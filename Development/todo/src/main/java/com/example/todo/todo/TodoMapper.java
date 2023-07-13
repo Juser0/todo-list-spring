@@ -23,7 +23,6 @@ public interface TodoMapper {
         Todo toEntity(final TodoExecuteRequestDto requestDto);
 
         @Override
-        @Mapping(target = "id", ignore = true)
         @Mapping(target = "userId", ignore = true)
         TodoInfoResponseDto toDto(final Todo todo);
     }

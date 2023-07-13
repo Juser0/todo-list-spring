@@ -53,7 +53,7 @@ public class UserService implements CrudService<UserCreateRequestDto, UserUpdate
         userRepository.save(user);
 
         UserUpdateResponseDto responseDto = UserUpdateMapper.MAPPER.toDto(user);
-        return null;
+        return responseDto;
     }
 
     @Override
